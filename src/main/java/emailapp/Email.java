@@ -1,5 +1,7 @@
 package emailapp;
 
+import org.w3c.dom.ls.LSOutput;
+
 import java.util.Scanner;
 
 public class Email {
@@ -9,9 +11,12 @@ public class Email {
     private String password;
     private String position;
     private String department;
+    private String email;
     private int mailboxCapacity;
     private int defaultPasswordLength = 10;
     private String alternateEmail;
+    private String companyName = "abccompany";
+    private String dotCom = ".com";
 
     public Email(String firstName, String lastName) {
         this.firstName = firstName;
@@ -23,6 +28,9 @@ public class Email {
 
         this.password = randomPassword(defaultPasswordLength);
         System.out.println("Your password is " + this.password);
+
+        email = firstName.toLowerCase() + "." + lastName.toLowerCase() + "@" + department + "." + companyName + dotCom;
+        System.out.println("Email Address: " + email);
     }
 
     private String setDepartment() {
@@ -30,11 +38,11 @@ public class Email {
         Scanner scanner = new Scanner(System.in);
         int departmentChoice = scanner.nextInt();
         if (departmentChoice == 1) {
-            return "Administrative";}
+            return "administrative";}
         else if (departmentChoice == 2) {
-            return "Dietary";}
+            return "dietary";}
         else if (departmentChoice == 3) {
-            return "Nursing"; }
+            return "nursing"; }
         else return " ";
     }
 
