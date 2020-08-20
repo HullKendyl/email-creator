@@ -21,20 +21,18 @@ public class Email {
     public Email(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
-        System.out.println("Email Created: " + this.firstName + " " + this.lastName);
 
         this.department = setDepartment();
-        System.out.println("Department: " + this.department);
 
         this.password = randomPassword(defaultPasswordLength);
         System.out.println("Your password is " + this.password);
 
         email = firstName.toLowerCase() + "." + lastName.toLowerCase() + "@" + department + "." + companyName + dotCom;
-        System.out.println("Email Address: " + email);
     }
 
     private String setDepartment() {
-        System.out.println("Enter the number for the correlating department.\n1 for Administrative\n2 for Dietary\n3 for Nursing\n0 for none");
+        System.out.println("New Employee: " + firstName + " " + lastName +
+                "\nPlease select the number for the correlating department.\n1 for Administrative\n2 for Dietary\n3 for Nursing\n0 for none");
         Scanner scanner = new Scanner(System.in);
         int departmentChoice = scanner.nextInt();
         if (departmentChoice == 1) {
